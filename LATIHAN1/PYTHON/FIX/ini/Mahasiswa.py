@@ -1,4 +1,5 @@
-class Mahasiswa:
+class Mahasiswa:  # kelas mahasiswa
+    # private atribut, constructor
     def __init__(self):
         self.NIM = ""
         self.nama = ""
@@ -8,6 +9,7 @@ class Mahasiswa:
         self.no_hp = ""
         self.alamat = ""
 
+    # public setter dan getter
     def setNIM(self, NIM):
         self.NIM = NIM
 
@@ -50,5 +52,6 @@ class Mahasiswa:
     def getAlamat(self):
         return self.alamat
 
+    # destructor
     def __del__(self):
         pass
