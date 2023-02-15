@@ -1,8 +1,11 @@
+//pemanggilan library
 #include <iostream>
 #include <string>
 using namespace std;
 
+//kelas untuk mahasiswa
 class Mahasiswa {
+    //atribut private
     private:
         string NIM;
         string nama;
@@ -10,8 +13,9 @@ class Mahasiswa {
         string jurusan;
         char jenis_kelamin;
         string no_hp;
-        string alamat;
-        
+        string fakultas;
+
+    //constructor
     public:
         Mahasiswa() {
             NIM = "";
@@ -20,9 +24,10 @@ class Mahasiswa {
             jurusan = "";
             jenis_kelamin = '-';
             no_hp = "";
-            alamat = "";
+            fakultas = "";
         }
         
+        //getter setter
         void setNIM(string NIM) {
             this->NIM = NIM;
         }
@@ -71,14 +76,15 @@ class Mahasiswa {
             return no_hp;
         }
 
-        void setAlamat(string alamat) {
-            this->alamat = alamat;
+        void setFakultas(string fakultas) {
+            this->fakultas = fakultas;
         }
 
-        string getAlamat() {
-            return alamat;
+        string getFakultas() {
+            return fakultas;
         }
 
+        //destructor
         ~Mahasiswa(){
 
         }
