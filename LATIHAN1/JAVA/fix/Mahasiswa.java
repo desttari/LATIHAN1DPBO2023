@@ -1,3 +1,4 @@
+// kelas mahasiswa
 public class Mahasiswa {
   private String NIM;
   private String nama;
@@ -5,8 +6,9 @@ public class Mahasiswa {
   private String jurusan;
   private char jenis_kelamin;
   private String no_hp;
-  private String alamat;
+  private String fakultas;
 
+  // constructor
   public Mahasiswa() {
     NIM = "";
     nama = "";
@@ -14,9 +16,10 @@ public class Mahasiswa {
     jurusan = "";
     jenis_kelamin = '-';
     no_hp = "";
-    alamat = "";
+    fakultas = "";
   }
 
+  // getter dan setter
   public void setNIM(String NIM) { this.NIM = NIM; }
 
   public String getNIM() { return NIM; }
@@ -43,7 +46,7 @@ public class Mahasiswa {
 
   public String getNoHP() { return no_hp; }
 
-  public void setAlamat(String alamat) { this.alamat = alamat; }
+  public void setFakultas(String fakultas) { this.fakultas = fakultas; }
 
-  public String getAlamat() { return alamat; }
+  public String getFakultas() { return fakultas; }
 }
