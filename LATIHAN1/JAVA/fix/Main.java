@@ -1,14 +1,19 @@
+// import scanner
 import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
+    // batas banyak data
     final int MAX = 1000;
     Mahasiswa[] mhs = new Mahasiswa[MAX];
+    // tanda data kosong
     int count = 0;
 
+    // wadah input user
     Scanner input = new Scanner(System.in);
 
     do {
+      // menu portal
       System.out.println(
           "\n------------------------------------------------------------------------");
       System.out.println(
@@ -29,13 +34,14 @@ public class Main {
       System.out.println("5. Keluar");
       System.out.print("Pilihan: ");
 
+      // piliham menu user
       int pilihan = input.nextInt();
 
-      if (pilihan == 1) {
+      if (pilihan == 1) { // menu tambah data
         if (count == MAX) {
           System.out.println("Data mahasiswa penuh.\n");
         } else {
-          String NIM, nama, jurusan, no_hp, alamat;
+          String NIM, nama, jurusan, no_hp, fakultas;
           int umur;
           char jenis_kelamin;
 
@@ -51,8 +57,8 @@ public class Main {
           System.out.print("Masukkan nomor handphone: ");
           no_hp = input.next();
           input.nextLine(); // consume the newline character
-          System.out.print("Masukkan alamat: ");
-          alamat = input.nextLine();
+          System.out.print("Masukkan fakultas: ");
+          fakultas = input.nextLine();
           System.out.print("Masukkan jurusan: ");
           jurusan = input.nextLine();
           System.out.println();
@@ -63,15 +69,16 @@ public class Main {
           temp.setJenisKelamin(jenis_kelamin);
           temp.setUmur(umur);
           temp.setNoHP(no_hp);
-          temp.setAlamat(alamat);
+          temp.setFakultas(fakultas);
           temp.setJurusan(jurusan);
 
+          // masukan data dari inputan user
           mhs[count] = temp;
           count++;
 
           System.out.println("Data mahasiswa berhasil ditambahkan.\n");
         }
-      } else if (pilihan == 2) {
+      } else if (pilihan == 2) { // menu edit data berdasar nim
         if (count == 0) {
           System.out.println("Belum ada data mahasiswa.\n");
         } else {
@@ -79,6 +86,7 @@ public class Main {
           System.out.println("\nMasukkan NIM yang akan diedit: ");
           NIM = input.nextLine();
 
+          // cari nim yg sama
           int idx = -1;
           for (int i = 0; i < count; i++) {
             if (mhs[i].getNIM().equals(NIM)) {
@@ -91,10 +99,11 @@ public class Main {
             System.out.println(
                 "\nData mahasiswa dengan NIM tersebut tidak ditemukan.\n");
           } else {
-            String nama, jurusan, no_hp, alamat;
+            String nama, jurusan, no_hp, fakultas;
             int umur;
             char jenis_kelamin;
 
+            // masukan data baru
             System.out.println("\nMasukkan nama: ");
             input.nextLine();
             nama = input.nextLine();
@@ -104,9 +113,9 @@ public class Main {
             umur = input.nextInt();
             System.out.println("Masukkan nomor handphone: ");
             no_hp = input.next();
-            System.out.println("Masukkan alamat: ");
+            System.out.println("Masukkan fakultas: ");
             input.nextLine();
-            alamat = input.nextLine();
+            fakultas = input.nextLine();
             System.out.println("Masukkan jurusan: ");
             jurusan = input.nextLine();
             System.out.println();
@@ -115,13 +124,13 @@ public class Main {
             mhs[idx].setJenisKelamin(jenis_kelamin);
             mhs[idx].setUmur(umur);
             mhs[idx].setNoHP(no_hp);
-            mhs[idx].setAlamat(alamat);
+            mhs[idx].setFakultas(fakultas);
             mhs[idx].setJurusan(jurusan);
 
             System.out.println("Data mahasiswa berhasil diubah.\n");
           }
         }
-      } else if (pilihan == 3) {
+      } else if (pilihan == 3) { // menu hapus data berdasar nim
         if (count == 0) {
           System.out.println("\nBelum ada data mahasiswa.\n");
         } else {
@@ -130,6 +139,7 @@ public class Main {
           Scanner scanner = new Scanner(System.in);
           NIM = scanner.next();
 
+          // cari nim yg sama
           int idx = -1;
           for (int i = 0; i < count; i++) {
             if (mhs[i].getNIM().equals(NIM)) {
@@ -150,7 +160,7 @@ public class Main {
             System.out.println("Data mahasiswa berhasil dihapus.\n");
           }
         }
-      } else if (pilihan == 4) {
+      } else if (pilihan == 4) { // menu menampilkan data
         if (count == 0) {
           System.out.println("\nBelum ada data mahasiswa.\n");
         } else {
@@ -161,12 +171,12 @@ public class Main {
             System.out.println("Jenis Kelamin : " + mhs[i].getJenisKelamin());
             System.out.println("Umur          : " + mhs[i].getUmur());
             System.out.println("Nomor HP      : " + mhs[i].getNoHP());
-            System.out.println("Alamat        : " + mhs[i].getAlamat());
+            System.out.println("Fakultas      : " + mhs[i].getFakultas());
             System.out.println("Jurusan       : " + mhs[i].getJurusan());
             System.out.println("\n");
           }
         }
-      } else if (pilihan == 5) {
+      } else if (pilihan == 5) { // menu keluar program
         System.out.println(
             "------------------------------------------------------------------------");
         System.out.println(
@@ -185,6 +195,6 @@ public class Main {
         System.out.println('\n');
       }
 
-    } while (true);
+    } while (true); // terus looping sampai menu 5 dipilih
   }
 }
